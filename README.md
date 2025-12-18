@@ -1,11 +1,12 @@
 # Motion Planning with Goal Regions
 
-The following repo is a part of a larger project titled "Motion Planning in Semi-Static Environments with Goal Regions"  
-This repo describes the structure of using goal regions for planning to objects with continuous pose variation.  
+This repository documents the system design and structure of a larger research project titled  
+**“Motion Planning in Semi-Static Environments with Goal Regions.”**  
+The focus here is on representing continuous workspace goals using goal regions and leveraging this representation for experience-based motion planning.
 
 ## Semi-Static Environments
 
-A semi-static environment is described by the presence of static obstacles and semi-static obstacles where semi-static obstacles are those who's poses vary between queries but not during a given query.  
+A semi-static environment consists of static obstacles and *semi-static* objects, where semi-static objects may change pose between queries but remain fixed during the execution of any single query.
 
 <!--
 ![A semi-static environment](images/semi_static1b.gif)
@@ -13,5 +14,5 @@ A semi-static environment is described by the presence of static obstacles and s
 
 <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;" />
 
-When object poses vary over a continuous distribution, a grasping query to one of these objects induces a motion planning problem. Thus, the object poses varying over a continuous distribution induce infinite motion planning problems.  
-Our strategy to solving this problem is to develop an experience-based planner that precomputes and stores paths to completely cover all feasible motion planning problems which can later be queried within a fixed-time bound to solve a newly sampled problem.
+When object poses vary over a continuous distribution, each grasping query induces a distinct motion planning problem, resulting in an effectively unbounded family of planning instances.  
+To address this, we adopt an experience-based planning strategy that precomputes and stores representative solution paths covering the feasible goal space. At query time, previously computed paths are retrieved and reused, enabling planning with bounded query-time latency.
