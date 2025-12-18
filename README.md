@@ -37,17 +37,6 @@ By representing subsets of the continuous object pose distribution using a finit
 
 ## Queries
 
-Using the above strategy, we create and load a data structure that can be queried in constant-time for solution paths, at the cost of a large memory footprint.
-
-<p align="center">
-  <img src="images/brute.gif" alt="Querying solutions from data structure" style="width:85%; height:auto;">
-  <br>
-  <strong>Fig. 2:</strong> Querying solutions from the data structure
-</p>
-
-
-## Queries
-
 Using the above strategy, we create and load a data structure of precomputed solution paths. A query is defined as the retrieval of a solution path from this data structure. This design enables constant-time queries at the cost of a large memory footprint.
 
 <p align="center">
