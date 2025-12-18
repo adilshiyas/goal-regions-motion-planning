@@ -24,7 +24,7 @@ A semi-static environment consists of static obstacles and *semi-static* objects
 <p align="center">
   <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;">
   <br>
-  *Fig 1:.*
+  <strong>Fig. 1:</strong> A semi-static environment
 </p>
   
 When object poses vary over a continuous distribution, each grasping query induces a distinct motion planning problem, resulting in an effectively unbounded family of planning instances.  
