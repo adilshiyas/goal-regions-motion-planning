@@ -11,6 +11,7 @@ A semi-static environment is described by the presence of static obstacles and s
 ![A semi-static environment](images/semi_static1b.gif)
 -->
 
-<img src="images/semi_static1b.gif" alt="semi-static environment" style="width:50%; height:auto;" />
+<img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;" />
 
-
+When object poses vary over a continuous distribution, a grasping query to one of these objects induces a motion planning problem. Thus, the object poses varying over a continuous distribution induce infinite motion planning problems.  
+Our strategy to solving this problem is to develop an experience-based planner that precomputes and stores paths to completely cover all feasible motion planning problems which can later be queried within a fixed-time bound to solve a newly sampled problem.
