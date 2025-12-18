@@ -6,8 +6,11 @@ This repo describes the structure of using goal regions for planning to objects 
 ## Semi-Static Environments
 
 A semi-static environment is described by the presence of static obstacles and semi-static obstacles where semi-static obstacles are those who's poses vary between queries but not during a given query.  
-  
-![YOOOOOOOO](images/semi_static1b.gif)
 
+<!--
+![A semi-static environment](images/semi_static1b.gif)
+-->
+
+<img src="images/semi_static1b.gif" alt="semi-static environment" style="width:50%; height:auto;" />
 
 
