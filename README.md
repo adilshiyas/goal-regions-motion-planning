@@ -13,12 +13,19 @@ A semi-static environment consists of static obstacles and *semi-static* objects
 
 
 <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;" />
--->
 
 <figure>
   <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%">
   <figcaption><strong>Fig 1:</strong> A semi-static environment.  </figcaption>
 </figure>
+
+-->
+
+<p align="center">
+  <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;">
+  <br>
+  *Fig 1:.*
+</p>
   
 When object poses vary over a continuous distribution, each grasping query induces a distinct motion planning problem, resulting in an effectively unbounded family of planning instances.  
 To address this, we adopt an experience-based planning strategy that precomputes and stores representative solution paths covering the feasible goal space. At query time, previously computed paths are retrieved and reused, enabling queries within a fixed-time bound.
