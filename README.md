@@ -32,4 +32,4 @@ To address this, we adopt an experience-based planning strategy that precomputes
 
 ## Goal Regions
 
-Implementing Task Space Regions from [Berenson 2011]([https://pages.github.com/](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/)) to represent continuous workspace goals.
+Implementing Task Space Regions from [Berenson 2011](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/) to represent continuous workspace goals.
