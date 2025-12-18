@@ -35,3 +35,12 @@ To address this, we adopt an experience-based planning strategy that precomputes
 Building on Task Space Regions (TSRs) from [Berenson 2011](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/), we represent continuous workspace goals with a set of TSR intersections.  
 By representing subsets of the continuous object pose distribution using a finite collection of TSR intersections, we can sample representative workspace goals from each region and store corresponding solution paths to provide coverage over the object’s pose distribution.
 
+## Queries
+
+Using the above strategy, we create and load a datastructure that can be queried in constant-time for solution paths
+
+<p align="center">
+  <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;">
+  <br>
+  <strong>Fig. 2:</strong> Querying the datastructure for solutions
+</p>
