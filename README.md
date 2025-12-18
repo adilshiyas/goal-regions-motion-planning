@@ -32,4 +32,4 @@ To address this, we adopt an experience-based planning strategy that precomputes
 
 ## Goal Regions
 
-Implementing Task Space Regions from [Berenson 2011](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/) to represent continuous workspace goals.
+Extending Task Space Regions (TSRs) from [Berenson 2011](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/), we represent continuous workspace goals with a set of TSR intersections. By representing the entire continuous pose distribution with a finite number of TSR intersections, we can then sample a workspace goal from each TSR intersection and store each of these paths to completely cover the queried object's pose distribution.
