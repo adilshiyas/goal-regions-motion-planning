@@ -30,3 +30,6 @@ A semi-static environment consists of static obstacles and *semi-static* objects
 When object poses vary over a continuous distribution, each grasping query induces a distinct motion planning problem, resulting in an effectively unbounded family of planning instances.  
 To address this, we adopt an experience-based planning strategy that precomputes and stores representative solution paths covering the feasible goal space. At query time, previously computed paths are retrieved and reused, enabling queries within a fixed-time bound.
 
+## Goal Regions
+
+Implementing Task Space Regions from [Berenson 2011]([https://pages.github.com/](https://www.ri.cmu.edu/publications/task-space-regions-a-framework-for-pose-constrained-manipulation-planning/)) to represent continuous workspace goals.
