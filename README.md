@@ -40,7 +40,7 @@ By representing subsets of the continuous object pose distribution using a finit
 Using the above strategy, we create and load a datastructure that can be queried in constant-time for solution paths
 
 <p align="center">
-  <img src="images/semi_static1b.gif" alt="semi-static environment" style="width:70%; height:auto;">
+  <img src="images/brute.gif" alt="Querying solutions from datastructure" style="width:70%; height:auto;">
   <br>
   <strong>Fig. 2:</strong> Querying the datastructure for solutions
 </p>
