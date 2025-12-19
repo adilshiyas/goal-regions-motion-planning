@@ -46,3 +46,33 @@ Using the above strategy, we create and load a data structure of precomputed sol
 </p>
 
 This design reflects an explicit time–memory tradeoff: the system prioritizes predictable, constant-time queries by precomputing and storing a large number of solution paths. Ongoing work explores alternative representations that reduce memory usage while preserving bounded query-time performance.
+
+## Algorithm
+
+This section summarizes the current pipeline in algorithmic form. The system consists of an offline precomputation stage that constructs an experience data structure, and an online query stage that retrieves a precomputed solution path. In the current implementation, a *query* is defined as constant-time retrieval of a precomputed solution path from the loaded data structure.
+
+### Offline Precomputation (Experience Library Construction)
+
+**Inputs:**  
+- Environment model with static obstacles  
+- Object pose distribution \( \mathcal{D} \) (or a sampling procedure over object poses)  
+- Goal region representation (TSR intersections) \( \{\mathcal{G}_k\}_{k=1}^{K} \)  
+- Planning routine `PLAN(start, goal)` (e.g., OMPL)  
+
+**Output:**  
+- Experience data structure \( \mathcal{H} \) mapping goal-region indices (and optionally pose bins) to solution paths
+
+```text
+Algorithm 1: BUILD_EXPERIENCE_LIBRARY
+1: Initialize empty data structure H
+2: Construct goal regions as TSR intersections {G_k} for k = 1..K
+3: for each goal region G_k do
+4:     Sample a representative workspace goal pose x_k ∈ G_k
+5:     Attempt to compute a collision-free path p_k = PLAN(q_start, x_k)
+6:     if planning succeeds then
+7:         Store p_k in H under key key(k)   # e.g., region id and/or pose bin
+8:     else
+9:         Store a failure marker in H under key key(k) (optional)
+10: end for
+11: Serialize H to disk
+12: return H
