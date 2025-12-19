@@ -108,7 +108,11 @@ Algorithm 2: Query
 ```
 
 ## Performance
-The performance of querying solution paths against planning-from-scratch using RRTConnect for a simple grasping problem with no static obstacles is shown below.
-
+The performance of querying solution paths against planning-from-scratch (PFS) using RRTConnect for a simple grasping problem with no static obstacles is shown below.
+<p align="center">
+  <img src="images/results.png" alt="query-vs-pfs" style="width:70%; height:auto;">
+  <br>
+  <strong>Fig. 1:</strong> CDF plot of Query vs PFS times
+</p>
 
 
