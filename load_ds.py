@@ -1,3 +1,11 @@
+"""
+This script demonstrates query-time retrieval of precomputed solution paths
+from an experience data structure.
+
+The offline construction of the experience library is not included in this
+repository.
+"""
+
 import genesis as gs
 import trimesh  # type: ignore
 import yaml
