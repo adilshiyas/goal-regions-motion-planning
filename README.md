@@ -108,11 +108,15 @@ Algorithm 2: Query
 ```
 
 ## Performance
-The performance of querying solution paths against planning-from-scratch (PFS) using RRTConnect for a simple grasping problem with no static obstacles is shown below.
+
+The performance of query-time retrieval is compared against planning from scratch (PFS) using RRTConnect on a simple grasping task with no static obstacles. Query time is defined as the retrieval of a precomputed solution path from the experience data structure, as described in Algorithm 2.
+
 <p align="center">
-  <img src="images/results.png" alt="query-vs-pfs" style="width:70%; height:auto;">
+  <img src="images/results.png" alt="query-vs-pfs" style="width:60%; height:auto;">
   <br>
-  <strong>Fig. 1:</strong> CDF plot of Query vs PFS times
+  <strong>Fig. 1:</strong> Empirical CDF of query-time retrieval versus planning-from-scratch runtimes.
 </p>
+
+In the current implementation, query times are approximately on the order of \(10^{-4}\) seconds, reflecting constant-time retrieval of precomputed solution paths. This performance gain is achieved at the cost of a large memory footprint for the experience data structure. Ongoing work focuses on reducing memory requirements while preserving bounded query-time performance.
 
 
