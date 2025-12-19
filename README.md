@@ -108,3 +108,7 @@ Algorithm 2: Query
 ```
 
 ## Performance
+The performance of querying solution paths against planning-from-scratch using RRTConnect for a simple grasping problem with no static obstacles is shown below.
+
+
+
