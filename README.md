@@ -49,30 +49,36 @@ This design reflects an explicit time–memory tradeoff: the system prioritizes 
 
 ## Algorithm
 
-This section summarizes the current pipeline in algorithmic form. The system consists of an offline precomputation stage that constructs an experience data structure, and an online query stage that retrieves a precomputed solution path. In the current implementation, a *query* is defined as constant-time retrieval of a precomputed solution path from the loaded data structure.
+This section summarizes the current pipeline in algorithmic form. The system consists of an offline preprocessing stage that constructs the experience data structure, and an online query stage that retrieves a precomputed solution path. In the current implementation, a *query* is defined as constant-time retrieval of a precomputed solution path from the loaded data structure.
 
 ### Offline Precomputation (Experience Library Construction)
 
+The current implementation assumes that the only semi-static object is the one being queried for a grasp. Further developments will include semi-static obstacles.
+
 **Inputs:**  
-- Environment model with static obstacles  
-- Object pose distribution \( \mathcal{D} \) (or a sampling procedure over object poses)  
-- Goal region representation (TSR intersections) \( \{\mathcal{G}_k\}_{k=1}^{K} \)  
-- Planning routine `PLAN(start, goal)` (e.g., OMPL)  
+- Static obstacle poses
+- Pose distribution N for semi-static object
+- Home pose H 
+- TSR B for a grasp (constructed based on end-effector and object geometry)  
 
 **Output:**  
-- Experience data structure \( \mathcal{H} \) mapping goal-region indices (and optionally pose bins) to solution paths
+- Experience data structure mapping bins of the object's possible poses to solution paths
 
 ```text
-Algorithm 1: BUILD_EXPERIENCE_LIBRARY
-1: Initialize empty data structure H
-2: Construct goal regions as TSR intersections {G_k} for k = 1..K
-3: for each goal region G_k do
-4:     Sample a representative workspace goal pose x_k ∈ G_k
-5:     Attempt to compute a collision-free path p_k = PLAN(q_start, x_k)
-6:     if planning succeeds then
-7:         Store p_k in H under key key(k)   # e.g., region id and/or pose bin
-8:     else
-9:         Store a failure marker in H under key key(k) (optional)
-10: end for
+Algorithm 1: PREPROCESSING
+1: Initialize empty data structure D
+2: Place object at an extreme pose Pmin ∈ N giving rise to TSR at Pmin, B_min
+3: Initialize covered object poses C = ∅ 
+4: while C is not equal to N:
+5:   Perturb object pose from Pmin to Pnew ∈ N to give TSR, B_new such that B_min ∩ B_new ≠ ∅   
+6:   Sample workspace goal W from B_min ∩ B_new
+7:   Find IK solution to W as Q
+8:   Plan path p_i from H to Q, store p_i in D
+9:   C = C ∪ convexhull(Pmin, Pnew)
+10:  Pmin = Pnew
+```
+
+
+
 11: Serialize H to disk
 12: return H
