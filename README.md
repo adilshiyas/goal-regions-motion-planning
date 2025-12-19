@@ -117,6 +117,6 @@ The performance of query-time retrieval is compared against planning from scratc
   <strong>Fig. 1:</strong> Empirical CDF of query-time retrieval versus planning-from-scratch runtimes.
 </p>
 
-In the current implementation, query times are approximately on the order of $10^{-4}$ seconds, reflecting constant-time retrieval of precomputed solution paths. This performance gain is achieved at the cost of a large memory footprint for the experience data structure. Ongoing work focuses on reducing memory requirements while preserving bounded query-time performance.
+In the current implementation, query times are approximately on the order of ${10}^{-4}$ seconds, reflecting constant-time retrieval of precomputed solution paths. This performance gain is achieved at the cost of a large memory footprint for the experience data structure. Ongoing work focuses on reducing memory requirements while preserving bounded query-time performance.
 
 
