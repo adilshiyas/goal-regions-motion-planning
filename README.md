@@ -55,8 +55,6 @@ This section summarizes the current pipeline in algorithmic form. The system con
 
 The current implementation assumes that the only semi-static object is the one being queried for a grasp. Further developments will include semi-static obstacles.
 
-**Algorithm 1: GOAL_REGION_LIBRARY_CONSTRUCTION**
-
 **Inputs:**  
 - Static obstacle configurations
 - Semi-static object pose distribution N
@@ -67,6 +65,7 @@ The current implementation assumes that the only semi-static object is the one b
 - Experience data structure D mapping object pose regions to solution paths
 
 ```text
+Algorithm 1: GOAL_REGION_LIBRARY_CONSTRUCTION
 1: Initialize empty data structure D
 2: Select initial object pose P1 ∈ N
 3: Compute initial TSR, B1 = TSR(P1)
@@ -89,3 +88,23 @@ The current implementation assumes that the only semi-static object is the one b
 18:return D
 ```
 Owing to the convexity of Task Space Regions and the specific selection of object poses during preprocessing, a solution path computed for object poses P1 and P2 remains valid for all intermediate object poses lying between them. As a result, a single stored path provides coverage over a region of the object pose space rather than only the sampled endpoints.
+
+### Online Query (Hashtable Lookup)
+
+**Inputs:**  
+- Observed semi-static object pose P
+- Experience data structure D
+
+**Output:**  
+- Precomputed solution path, or failure
+
+```text
+Algorithm 2: Query
+1. Determine object-pose bin R such that P ∈ R
+2. if D contains a path associated with R then
+3.   return D[R]
+4. else
+5.   return failure
+```
+
+## Performance
