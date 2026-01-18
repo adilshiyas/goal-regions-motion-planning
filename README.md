@@ -1,6 +1,6 @@
 # Motion Planning with Goal Regions
 
-This repository documents the system design and structure of a larger research project titled  
+This repository documents a larger research project titled  
 **“Motion Planning in Semi-Static Environments with Goal Regions.”**  
 The focus here is on representing continuous workspace goals using goal regions and leveraging this representation for experience-based motion planning.
 
